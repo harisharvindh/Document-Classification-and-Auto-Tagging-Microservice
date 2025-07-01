@@ -1,0 +1,19 @@
+# Makefile
+
+.PHONY: train evaluate serve clean
+
+# Train the model
+train:
+	python train.py --output_dir model --epochs 3 --batch_size 16
+
+# Evaluate the model
+evaluate:
+	python evaluate.py --model_dir model --eval_file data/val.json
+
+# Serve the model using CLI
+serve:
+	python inference.py --text "Enter your document text here"
+
+# Clean generated files
+clean:
+	rm -rf model __pycache__ *.pyc

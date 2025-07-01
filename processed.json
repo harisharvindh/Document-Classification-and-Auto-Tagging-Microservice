@@ -1,0 +1,42 @@
+[
+  {
+    "text": "This contract outlines the agreement between two parties for the provision of IT consulting services.",
+    "labels": ["contract", "consulting", "IT"]
+  },
+  {
+    "text": "The financial report shows an increase in quarterly revenue and a decrease in operational costs.",
+    "labels": ["finance", "report", "quarterly"]
+  },
+  {
+    "text": "Meeting minutes from the annual general meeting held on March 10, 2024.",
+    "labels": ["meeting", "minutes", "annual"]
+  },
+  {
+    "text": "This invoice is for services rendered during the software development sprint in Q1.",
+    "labels": ["invoice", "software", "development"]
+  },
+  {
+    "text": "A memorandum regarding the updated remote work policy effective from August 2024.",
+    "labels": ["memo", "HR", "policy"]
+  },
+  {
+    "text": "Patent filing describing a new method for distributed ledger consensus in blockchain systems.",
+    "labels": ["patent", "blockchain", "technology"]
+  },
+  {
+    "text": "Legal opinion on the enforceability of non-compete clauses in California.",
+    "labels": ["legal", "compliance", "HR"]
+  },
+  {
+    "text": "Summary of customer feedback from surveys conducted across five geographic regions.",
+    "labels": ["survey", "feedback", "customer"]
+  },
+  {
+    "text": "Board resolution approving the merger between Alpha Corp and Beta Inc.",
+    "labels": ["board", "merger", "legal"]
+  },
+  {
+    "text": "Training document for onboarding new employees into the cloud security division.",
+    "labels": ["training", "onboarding", "security"]
+  }
+]
