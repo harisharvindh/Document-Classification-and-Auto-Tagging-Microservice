@@ -14,10 +14,6 @@ This project implements a production-ready microservice to classify and auto-tag
 
 ---
 
-## 📁 Directory Structure
-
-
-
 ## 🗂️ Project Structure
 
 ```bash
