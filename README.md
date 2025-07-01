@@ -1,32 +1,63 @@
-Multi-label Document Classification Microservice
+# Document Auto-Tagging Microservice
 
-A Dockerized microservice to classify and auto-tag scanned documents using a fine-tuned `distilBERT` model. The service provides a REST API and supports model evaluation, retraining, and inference through a CLI.
+This project implements a production-ready microservice to classify and auto-tag scanned documents (contracts, reports, etc.) using a fine-tuned `distilBERT` model. It supports multi-label classification, reproducible training workflows, batch inference, and containerized deployment.
+
+## Features
+
+- Fine-tuned `distilBERT` for multi-label document tagging
+- FastAPI-based inference API
+- CLI-based batch/single document inference
+- Preprocessing from raw JSON to model-ready format
+- Training with both HuggingFace Trainer and custom PyTorch loop
+- MLOps workflow using `Docker`, `Makefile`, and reproducible training
+- Lightweight evaluation and retraining routines
 
 ---
 
-## 🚀 Features
-
-- Fine-tunes `distilBERT` for multi-label classification using HuggingFace Transformers.
-- Preprocessing pipeline supports `.json` and `.txt` formats.
-- Exposes a Flask-based REST API for predictions.
-- CLI support for inference and evaluation.
-- Lightweight retraining with cronjob support.
-- Dockerized and CI/CD-ready.
-
----
-
-## 🗂️ Project Structure
+## 📁 Directory Structure
 
 ```bash
-DocumentTagger/
-├── app/
-│   ├── data_preprocessing.py     # Loads and tokenizes dataset
-│   ├── inference.py              # CLI entrypoint for prediction
-│   ├── evaluate.py               # Evaluation metrics (F1, report)
-│   ├── model.py                  # Model load/save logic
-│   ├── config.py                 # Paths and configs
-├── Dockerfile
-├── Makefile
-├── requirements.txt
-├── processed.json                # Sample dataset
-└── README.md
+.
+├── app.py                # FastAPI app for serving the model
+├── config.py             # Configuration variables (paths, model, thresholds)
+├── data_preprocessing.py # Preprocesses raw JSON into model-friendly format
+├── Dockerfile            # Docker setup for containerizing the service
+├── evaluate.py           # Evaluate model predictions on test set
+├── inference.py          # CLI script for batch/single prediction
+├── labels.txt            # Label list used by the model
+├── Makefile              # Task automation (train, clean, docker, etc.)
+├── model.py              # Core class wrapping tokenizer/model/prediction
+├── processed.json        # Preprocessed dataset (sample)
+├── README.md             # Project documentation
+├── requirements.txt      # Python package dependencies
+├── train.py              # General-purpose training script
+├── train_hf.py           # HuggingFace Trainer-based training
+├── train_pytorch.py      # Manual PyTorch training loop
+
+
+
+---
+
+## Quickstart
+
+### 1. Install dependencies
+```bash
+pip install -r requirements.txt
+
+Train the model (Hugging Face Trainer)
+make train_hf
+
+Or use the custom PyTorch loop
+make train_pytorch
+
+Run inference
+python inference.py --text "This agreement outlines the tenant’s responsibilities..."
+
+Launch the API server
+uvicorn app:app --reload
+
+Docker (Build & Run)
+make docker_build
+make docker_run
+  
+
